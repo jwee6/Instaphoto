@@ -1,15 +1,5 @@
-%h1 All Posts
+%h1 
+	All Posts 
 
-.posts-wrapper.row
-	- @posts.each do |post|
-		.post
-			.post-head
-				.name
-					Jason Wee
-			.image.center-block
-				= link_to image_tag(post.image.url(:medium)), post
-			%p= post.caption
-
-= link_to "root_path", root_path
-
-= link_to "New Post", new_post_path
+- @posts.each do |post|
+	= render 'post', post:post

@@ -1,2 +1,10 @@
-= image_tag @post.image.url(:medium)
-= @post.caption
+= render 'post', post: @post
+- if @post.user_id = current_user.id
+	.text-center.edit-links
+		=link_to "Cancel", posts_path
+		|
+		=link_to "Edit Post", edit_post_path(@post)
+- else
+	.text-center.edit-links
+		=link_to "Back", posts_path 
+
